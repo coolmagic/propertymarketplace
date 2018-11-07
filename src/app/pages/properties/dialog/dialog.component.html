@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Buy Propery With Cryptocurrency</h1>
+<form class="example-form">
+  <div mat-dialog-content>
+    <p>Enter transaction details</p>
+    
+    <mat-form-field class="w-100">
+      <textarea matInput
+                cdkTextareaAutosize
+                #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="15"
+                cdkAutosizeMaxRows="25"
+                name="website"
+                [(ngModel)]="website"
+                placeholder=""
+      ></textarea>
+    </mat-form-field>
+  
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button (click)="save()">Submit</button>
+  </div>
+</form>

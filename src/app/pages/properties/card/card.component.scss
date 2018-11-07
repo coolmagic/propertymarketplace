@@ -1,0 +1,32 @@
+.example-card {
+  max-width: auto;
+}
+
+.example-additional-selection {
+  opacity: 0.75;
+  font-size: 0.75em;
+}
+
+img{
+  border: 1px solid #dddada;
+  border-bottom: 0px;
+}
+
+.property{
+  position: relative;
+}
+.price-block{
+  background: #4CAF50;
+  color: #fff;
+  font-weight: bold;
+}
+
+.price-block div{
+  margin-left: 14px;
+}
+.price-block div:first-child{
+  padding-top: 10px;
+}
+.price-block div:last-child{
+  padding-bottom: 10px;
+}
