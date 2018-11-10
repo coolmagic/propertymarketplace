@@ -1,3 +1,4 @@
+/*
 import {
   LOGIN_SUCCESSFUL,
   LOGIN_FAILED,
@@ -14,7 +15,7 @@ import abi from '../contracts/landContract.json';
 
 let web3 = new Web3();
 web3.setProvider(
-  new Web3.providers.WebsocketProvider(
+  new Web3(
     'ws://localhost:8546'
   )
 );
@@ -151,3 +152,4 @@ let subscribeToEvents = (contractInstance, dispatch) => {
   );
 
 }
+*/

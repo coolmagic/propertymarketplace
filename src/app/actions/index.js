@@ -12,11 +12,40 @@ import Web3 from 'web3';
 import abi from '../contracts/landContract.json';
 
 let web3 = new Web3();
+
 web3.setProvider(
-  new Web3.providers.WebsocketProvider(
+  new Web3(
     'ws://localhost:8546'
   )
 );
+
+window.addEventListener('load', function() {
+  // Load WEB3
+  // Check wether it's already injected by something else (like Metamask or Parity Chrome plugin)
+  if(typeof web3 !== 'undefined') {
+    web3 = new Web3(web3.currentProvider);
+  } else {
+    console.log('No Web3 Detected... get Metamask');
+  }
+  var accountInterval = setInterval(getBalance() , 100);
+});
+
+
+function getBalance() {
+  var wei, balance
+  try {
+    web3.eth.getAccounts(function(err, accounts) {
+      web3.eth.getBalance(accounts[0], function(error, wei) {
+        console.log(accounts[0]);
+        if (!error) {
+          var balance = web3.utils.fromWei(wei, 'ether');
+          console.log(balance);
+        }
+      })
+    });
+  } catch (err) {
+    console.log(err);  }
+}
 
 export const login = (address, password) => {
   return dispatch => {
@@ -149,4 +178,16 @@ export const takeOffMarket = (contractInstance, plotId, userId) => {
         console.log(error);
       })
   }
+}
+
+export const loadProperty = (address) => {
+  let contractInstance = new web3.eth.Contract(abi, address);
+  return contractInstance.methods.getPlots().call()
+    .then(response => {
+      let plots =  _.zipWith(response[0], response[1], response[2], (owner, forSale, price) => {
+        return {owner, forSale, price};
+      });
+      return plots;
+    })
+    .catch(error => console.log(error));
 }

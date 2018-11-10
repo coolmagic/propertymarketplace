@@ -12,7 +12,8 @@ const routes: Routes = [
     { path: 'landregistry', component: LandregistryComponent },
     { path: 'hmrc', component: HmrcComponent },
     { path: 'solicitor', component: SolicitorComponent },
-    { path: 'salerecord', component: SalerecordComponent }
+    { path: 'salerecord', component: SalerecordComponent },
+    { path: 'customer', component: SalerecordComponent }
 ];
 
 @NgModule({

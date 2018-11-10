@@ -1,25 +1,29 @@
 <mat-card class="example-card mat-elevation-z22">
-	<mat-card-header>
-		<div mat-card-avatar class="example-header-image"></div>
-		<mat-card-title></mat-card-title>
-		<mat-card-subtitle></mat-card-subtitle>
-	</mat-card-header>
-	<img src="https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/24k/23921/55062945/23921_2440067_IMG_01_0000_max_476x317.jpg"
-	 alt="Photo of house">
-	<div class="price-block">
-		<div> 550 ETH</div>
-		<div>Special price</div>
-	</div>
-	<mat-card-content>
-		<p>
-		</p>
-	</mat-card-content>
-	<mat-card-actions>
-		<button mat-raised-button color="primary" (click)="openDialog()" class="mr-5">BUY</button>
-		<mat-form-field>
-			<mat-select placeholder="Cryptocurrency" multiple [(ngModel)]="selectedCoin">
-			  <mat-option *ngFor="let coin of coins" [value]="coin">{{coin}}</mat-option>
-			</mat-select>
-		  </mat-form-field>
-	</mat-card-actions>
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image" [hidden]="!forSale">
+      <span class="badge badge-pill badge-primary">For Sale</span>
+     <!-- <span class="badge badge-pill badge-warning">Take off the market</span>-->
+    </div>
+    <mat-card-title></mat-card-title>
+    <mat-card-subtitle></mat-card-subtitle>
+  </mat-card-header>
+  <img
+    src="https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/24k/23921/55062945/23921_2440067_IMG_01_0000_max_476x317.jpg"
+    alt="Photo of house">
+  <div class="price-block">
+    <div><label>ETH {{price}}</label></div>
+    <div>Owner: <label>{{owner}}</label></div>
+  </div>
+  <mat-card-content>
+    <p>
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="openDialog()" class="mr-5">BUY</button>
+    <mat-form-field>
+      <mat-select placeholder="Cryptocurrency" multiple [(ngModel)]="selectedCoin">
+        <mat-option *ngFor="let coin of coins" [value]="coin">{{coin}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card-actions>
 </mat-card>

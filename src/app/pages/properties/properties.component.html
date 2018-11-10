@@ -1,9 +1,8 @@
 <div class="p-3">
   <mat-grid-list cols="2" rowHeight="1:1">
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
+    <div *ngIf="plots">
+      <app-card *ngFor="let aPlot of plots" [plot]="aPlot"></app-card>
+    </div>
   </mat-grid-list>
 </div>
 
